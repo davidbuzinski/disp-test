@@ -5,7 +5,7 @@ jobs:
   hello:
     runs-on: [windows-latest]
     steps:
-      - name: disp hello
+      - name: Install MATLAB
         uses: matlab-actions/setup-matlab@v3
         with:
           release: r2023a
