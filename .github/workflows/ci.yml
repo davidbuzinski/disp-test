@@ -1,0 +1,13 @@
+name: MATLAB Test
+on: [push]
+
+jobs:
+  hello:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: disp hello
+        uses: matlab-actions/run-command@v3.2
+        with:
+          command: |
+            disp('Hello world');
+            disp('こんにちは');
