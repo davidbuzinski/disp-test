@@ -7,8 +7,8 @@ jobs:
     steps:
       - name: Install MATLAB
         uses: matlab-actions/setup-matlab@v3
-        with:
-          release: r2023a
+        # with:
+        #   release: r2023a
       - name: disp hello
         uses: matlab-actions/run-command@v3.2
         with:
