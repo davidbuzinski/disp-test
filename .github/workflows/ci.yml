@@ -6,6 +6,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: disp hello
+        uses: matlab-actions/setup-matlab@v3
+      - name: disp hello
         uses: matlab-actions/run-command@v3.2
         with:
           command: |
