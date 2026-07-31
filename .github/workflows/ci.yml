@@ -9,6 +9,8 @@ jobs:
         uses: matlab-actions/setup-matlab@v3
         with:
           release: r2023a
+          cache: true
+          
       - name: disp hello
         uses: matlab-actions/run-command@v3.2
         with:
@@ -18,7 +20,7 @@ jobs:
 
       - name: other test
         run: |
-          run-matlab-command "disp('こんにちは')" > out.txt
+          run-matlab-command "disp("hello"); disp('こんにちは')" > out.txt
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v7.0.1
