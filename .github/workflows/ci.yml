@@ -3,12 +3,15 @@ on: [push]
 
 jobs:
   hello:
+    strategy:
+      matrix:
+        release: [R2023a, latest]
     runs-on: [windows-latest]
     steps:
       - name: Install MATLAB
         uses: matlab-actions/setup-matlab@v3
         with:
-          release: r2023a
+          release: ${{ matrix.release }}
           cache: true
           
       - name: disp hello
