@@ -5,17 +5,15 @@ jobs:
   hello:
     strategy:
       matrix:
-        release: [R2023a, latest]
-    runs-on: [windows-latest]
+        release: [R2023a, R2026a]
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Install MATLAB
         uses: matlab-actions/setup-matlab@v3
         with:
           release: ${{ matrix.release }}
           cache: true
-
-      - name: test
-        run: chcp 65001
         
       - name: disp hello
         uses: matlab-actions/run-command@v3.2
@@ -24,15 +22,3 @@ jobs:
             disp('Hello world');
             disp('こんにちは');
             feature locale
-
-      - name: other test
-        uses: matlab-actions/run-command@v3.2
-        with:
-          command: |
-            writelines("hello こんにちは","out.txt","Encoding","UTF-8")
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: output
-          path: ./out.txt
