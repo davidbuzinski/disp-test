@@ -21,7 +21,7 @@ jobs:
       - name: other test
         run: |
           curl -L -o run-matlab-command.exe https://ssd.mathworks.com/supportfiles/ci/run-matlab-command/v2/win64/run-matlab-command.exe
-          run-matlab-command "disp("hello"); disp('こんにちは')" > out.txt
+          ./run-matlab-command.exe "disp("hello"); disp('こんにちは')" > out.txt
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v7.0.1
