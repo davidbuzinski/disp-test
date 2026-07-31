@@ -17,11 +17,13 @@ jobs:
           command: |
             disp('Hello world');
             disp('こんにちは');
+            feature locale
 
       - name: other test
-        run: |
-          curl -L -o run-matlab-command.exe https://ssd.mathworks.com/supportfiles/ci/run-matlab-command/v2/win64/run-matlab-command.exe
-          ./run-matlab-command.exe "disp('hello'); disp('こんにちは')" > out.txt
+        uses: matlab-actions/run-command@v3.2
+        with:
+          command: |
+            writelines("hello こんにちは","out.txt","Encoding","UTF-8")
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v7.0.1
