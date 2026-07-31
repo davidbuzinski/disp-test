@@ -15,3 +15,13 @@ jobs:
           command: |
             disp('Hello world');
             disp('こんにちは');
+
+      - name: other test
+        run: |
+          run-matlab-command "disp('こんにちは')" > out.txt
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: output
+          path: ./out.txt
