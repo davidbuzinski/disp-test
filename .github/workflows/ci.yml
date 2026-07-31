@@ -13,7 +13,10 @@ jobs:
         with:
           release: ${{ matrix.release }}
           cache: true
-          
+
+      - name: test
+        run: chcp 65001
+        
       - name: disp hello
         uses: matlab-actions/run-command@v3.2
         with:
